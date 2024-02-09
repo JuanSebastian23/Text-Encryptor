@@ -2,11 +2,14 @@ body {
     background-color: rgb(242, 248, 253);
 }
 
-body, .form-control, .card {
+body,
+.form-control,
+.card {
     transition: all 0.5s ease;
 }
 
-body.dark-mode, .form-control.dark-mode {
+body.dark-mode,
+.form-control.dark-mode {
     background-color: #333;
     color: #fff;
 }
@@ -34,25 +37,37 @@ body.dark-mode, .form-control.dark-mode {
     display: none;
 }
 
-.form-floating > textarea {
+.form-floating>textarea {
     width: 300px;
     height: 300px !important;
     margin-top: 10%;
     background-color: transparent;
     border-color: #0a3871;
-    
+
 }
 
 .form-control {
-    resize: none; 
-    color:#0a3871;
+    resize: none;
+    color: #0a3871;
     font-weight: 500;
 }
+
 
 
 .card {
     margin-top: 10%;
     border: none;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    padding: 20px;
+    background-color: white;
+}
+
+.card:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
 }
 
 .card-space {
@@ -61,16 +76,47 @@ body.dark-mode, .form-control.dark-mode {
 
 .btn-1 {
     background-color: #0a3871;
+    /* color de fondo inicial */
     color: white;
-    
+    /* color de texto inicial */
+    box-shadow: none;
+    /* sin sombra de caja inicialmente */
+    transition: all 0.5s ease;
+    /* transición más suave */
+    transform: scale(1);
+    /* tamaño inicial */
+}
+
+.btn-1:hover {
+    background-color: #082d5f;
+    /* color de fondo más oscuro */
+    color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
+    /* tamaño ligeramente mayor */
 }
 
 .btn-2 {
     background-color: rgb(235, 250, 255);
+    /* color de fondo inicial */
     border-color: #0a3871;
+    /* color de borde inicial */
+    color: #0a3871;
+    /* color de texto inicial */
+    transition: all 0.5s ease;
+    /* transición suave */
 }
 
-.btn{ 
+.btn-2:hover {
+    background-color: #0a3871;
+    /* color de fondo oscuro */
+    border-color: rgb(235, 250, 255);
+    /* color de borde claro */
+    color: rgb(235, 250, 255);
+    /* color de texto claro */
+}
+
+.btn {
     margin-top: 3%;
     margin: 30px;
     width: 125px;
@@ -79,12 +125,81 @@ body.dark-mode, .form-control.dark-mode {
 
 .img-thumbnail {
     background-color: transparent;
-    border:none;
+    border: none;
     margin-top: 2%;
 }
 
+#textPrompt {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    outline: none;
+    background-color: white;
+    color: #0a3871;
+}
+
+#textPrompt {
+    border: 1px solid #0a3871;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    outline: none;
+    background-color: transparent;
+    color: #0a3871;
+}
+
+#textPrompt:focus {
+    box-shadow: 0 5px 15px #0a3871;
+    border-color: #4d90fe;
+}
+
+.card {
+    border: 1px solid #0a3871;
+    color: #0a3871;
+    transition: box-shadow 0.3s ease;
+}
+
+.card:active {
+    box-shadow: 0 5px 15px #0a3871;
+}
+
+/* Agregar regla para la selección activa */
+::selection {
+    background: #0a3871;
+    color: #fff;
+}
+
+@media (prefers-color-scheme: dark) {
+    #textPrompt {
+        background-color: transparent;
+        color: #0a3871;
+        border-color: #0a3871;
+    }
+
+    #textPrompt:focus {
+        border-color: #4d90fe;
+        box-shadow: 0 5px 15px #0a3871;
+    }
+
+    .card {
+        color: #0a3871;
+        border-color: #0a3871;
+    }
+
+    .card:active {
+        box-shadow: 0 5px 15px #0a3871;
+    }
+
+    /* Agregar regla para la selección activa en modo oscuro */
+    ::selection {
+        background: #0a3871;
+        color: #fff;
+    }
+}
+
 .footer {
-    
+
     left: 0;
     bottom: 0;
     width: 100%;
@@ -104,13 +219,13 @@ body.dark-mode, .form-control.dark-mode {
     --circle-diameter: 32px;
     --circle-bg: rgb(0, 56, 146);
     --circle-inset: calc((var(--circle-diameter) - var(--switch-height)) / 2);
-  }
-  
-  .ui-switch input {
+}
+
+.ui-switch input {
     display: none;
-  }
-  
-  .slider {
+}
+
+.slider {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -120,9 +235,9 @@ body.dark-mode, .form-control.dark-mode {
     border-radius: 999px;
     position: relative;
     cursor: pointer;
-  }
-  
-  .slider .circle {
+}
+
+.slider .circle {
     top: calc(var(--circle-inset) * -1);
     left: 0;
     width: var(--circle-diameter);
@@ -145,11 +260,11 @@ body.dark-mode, .form-control.dark-mode {
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
-    box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 3px 0px rgba(0,0,0,0.12);
+    box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
     ;
-  }
-  
-  .slider .circle::before {
+}
+
+.slider .circle::before {
     content: "";
     position: absolute;
     width: 100%;
@@ -160,39 +275,40 @@ body.dark-mode, .form-control.dark-mode {
     -o-transition: all 500ms;
     transition: all 500ms;
     opacity: 0;
-  }
-  
-  /* actions */
-  
-  .ui-switch input:checked+.slider .circle {
+}
+
+/* actions */
+
+.ui-switch input:checked+.slider .circle {
     left: calc(100% - var(--circle-diameter));
     background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjAiIHdpZHRoPSIyMCIgdmlld0JveD0iMCAwIDIwIDIwIj4KICAgIDxwYXRoIGZpbGw9IiNmZmYiCiAgICAgICAgZD0iTTQuMiAyLjVsLS43IDEuOC0xLjguNyAxLjguNy43IDEuOC42LTEuOEw2LjcgNWwtMS45LS43LS42LTEuOHptMTUgOC4zYTYuNyA2LjcgMCAxMS02LjYtNi42IDUuOCA1LjggMCAwMDYuNiA2LjZ6IiAvPgo8L3N2Zz4=");
-  }
-  
-  .ui-switch input:active+.slider .circle::before {
+}
+
+.ui-switch input:active+.slider .circle::before {
     -webkit-transition: 0s;
     -o-transition: 0s;
     transition: 0s;
     opacity: 1;
     width: 0;
     height: 0;
-  }
+}
 
-  .ui-switch {
+.ui-switch {
     margin-top: 2%;
-    margin-right: 10px !important;  
+    margin-right: 10px !important;
 }
 
 .navbar {
     background-color: transparent;
     height: 30px !important;
     background-color: none;
-    
+
 }
 
 .textarea-2 {
     position: absolute;
-    top: -150px; /* Ajusta este valor según lo necesites */
+    top: -150px;
+    /* Ajusta este valor según lo necesites */
     left: 0;
     background-color: #fff;
 }
