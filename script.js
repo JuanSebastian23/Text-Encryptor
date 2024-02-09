@@ -3,9 +3,9 @@ function clearText() {
     if (textarea.value === 'Ingresar texto aquí...') {
       textarea.value = '';
     }
-  }
+}
 
-  function toggleDarkMode() {
+function toggleDarkMode() {
     var elements = document.querySelectorAll('body, .form-control, .card');
     elements.forEach(function(el) {
         el.classList.toggle('dark-mode');
@@ -46,6 +46,10 @@ function encryptText() {
         }
     }
     textarea.value = encryptedText;
+
+    // Ocultar el botón de encriptar y mostrar el botón de copiar
+    document.querySelector('.btn[onclick="encryptText()"]').style.display = 'none';
+    document.querySelector('.btn[onclick="copyToClipboard()"]').style.display = 'block';
 }
 
 function decryptText() {
@@ -71,4 +75,23 @@ function decryptText() {
     textarea.value = decryptedText;
 }
 
+function copyToClipboard() {
+    navigator.clipboard.writeText(document.getElementById('textPrompt').value)
+        .then(() => {
+            Swal.fire({
+                icon: 'success',
+                title: '¡Éxito!',
+                text: 'Texto copiado al portapapeles',
+                timer: 1500,
+                showConfirmButton: false
+            });
+        })
+        .catch(err => {
+            Swal.fire({
+                icon: 'error',
+                title: '¡Error!',
+                text: 'Error al copiar el texto: ' + err
+            });
+        });
+}
 

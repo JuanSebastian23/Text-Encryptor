@@ -16,6 +16,11 @@ body.dark-mode, .form-control.dark-mode {
     color: #fff;
 }
 
+.form-control.dark-mode {
+    background-color: #3257834d;
+    color: #fff;
+}
+
 #textPrompt {
     resize: none;
     font-size: 20px;
@@ -23,6 +28,10 @@ body.dark-mode, .form-control.dark-mode {
 
 .card-space {
     margin-bottom: 100px;
+}
+
+.btn[onclick="copyToClipboard()"] {
+    display: none;
 }
 
 .form-floating > textarea {
@@ -179,4 +188,11 @@ body.dark-mode, .form-control.dark-mode {
     height: 30px !important;
     background-color: none;
     
+}
+
+.textarea-2 {
+    position: absolute;
+    top: -150px; /* Ajusta este valor según lo necesites */
+    left: 0;
+    background-color: #fff;
 }
