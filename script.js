@@ -9,7 +9,7 @@ function clearText() {
 // Esta función alterna el modo oscuro en el cuerpo del documento y en algunos elementos seleccionados
 function toggleDarkMode() {
     var elements = document.querySelectorAll('body, .form-control, .card');
-    elements.forEach(function(el) {
+    elements.forEach(function (el) {
         el.classList.toggle('dark-mode');
     });
 }
@@ -87,7 +87,7 @@ function decryptText() {
 
     toLowerCaseText();
     encryptedText = textarea.value;
-    var decryptedText = encryptedText.replace(/(ai|enter|imes|ober|ufat)/g, function(match) {
+    var decryptedText = encryptedText.replace(/(ai|enter|imes|ober|ufat)/g, function (match) {
         switch (match) {
             case 'ai':
                 return 'a';
@@ -128,3 +128,4 @@ function copyToClipboard() {
             });
         });
 }
+
